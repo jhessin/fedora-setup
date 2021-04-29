@@ -12,21 +12,21 @@ else
   rm google-chrome-stable_current_x86_64.rpm
 fi
 
-# setup firefox-esr
-if [ -e "/usr/local/bin/firefox-esr" ]; then
-  echo Firefox ESR already installed.
-else
-  wget "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=linux64&lang=en-US"\
-    -O firefox.tar.bz2
-
-  tar xaf firefox.tar.bz2
-  sudo chown -R root:root firefox
-  sudo mv firefox /opt/firefox-esr
-  sudo ln -s /opt/firefox-esr/firefox /usr/local/bin/firefox-esr
-  sudo cp firefox-esr.desktop /usr/share/applications
-  # cleanup firefox download
-  rm firefox.tar.bz2
-fi
+# # setup firefox-esr
+# if [ -e "/usr/local/bin/firefox-esr" ]; then
+#   echo Firefox ESR already installed.
+# else
+#   wget "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=linux64&lang=en-US"\
+#     -O firefox.tar.bz2
+#
+#   tar xaf firefox.tar.bz2
+#   sudo chown -R root:root firefox
+#   sudo mv firefox /opt/firefox-esr
+#   sudo ln -s /opt/firefox-esr/firefox /usr/local/bin/firefox-esr
+#   sudo cp firefox-esr.desktop /usr/share/applications
+#   # cleanup firefox download
+#   rm firefox.tar.bz2
+# fi
 
 # remove old firefox
 sudo dnf -y remove firefox
