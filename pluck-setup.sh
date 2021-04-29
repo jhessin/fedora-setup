@@ -4,7 +4,7 @@
 wget "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm" \
   -O google-chrome-stable_current_x86_64.rpm
 
-sudo dnf localinstall google-chrome-stable_current_x86_64.rpm
+sudo dnf -y localinstall google-chrome-stable_current_x86_64.rpm
 # cleanup download
 rm google-chrome-stable_current_x86_64.rpm
 
@@ -22,6 +22,6 @@ sudo cp firefox-esr.desktop /usr/share/applications
 rm firefox.tar.bz2
 
 # remove old firefox
-sudo dnf remove firefox
+sudo dnf -y remove firefox
 
 ./pluck.installer

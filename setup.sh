@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+# install function
+function dnfinstall {
+  sudo dnf -y install $1
+}
+
 # add repositories
-sudo dnf install fedora-workstation-repositories
+dnfinstall fedora-workstation-repositories
 # sudo dnf config-manager --set-enabled # Some repositories to enable?
 
 # setup homebrew
@@ -11,8 +16,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
 # Add gnome-tweaks and set the most important settings
-sudo dnf install gnome-tweaks
-sudo dnf install gnome-extensions-app
+dnfinstall gnome-tweaks
+dnfinstall gnome-extensions-app
 
 # focus follows mouse
 gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
@@ -64,35 +69,37 @@ rm -rf ~/.local/bin
 gh repo clone jhessin/bin ~/.local/bin
 
 # copy config from github
-cd ~/.config
+pushd ~/.config
 gmerge .config
+popd
 
 # setup zsh
-sudo dnf install zsh
+dnfinstall zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # copy dotfiles from github
-cd ~
+pushd ~
 gmerge dotfiles
+popd
 
 # setup neovim
-sudo dnf install neovim
+dnfinstall neovim
 pip install pynvim --user
-nvim/install.sh
+~/.config/nvim/install.sh
 
 # add util-linux-user and configure zsh as default shell
-sudo dnf install neofetch
-sudo dnf install util-linux-user
+dnfinstall neofetch
+dnfinstall util-linux-user
 chsh -s /usr/bin/zsh
 
 # add powerline
-sudo dnf install powerline
+dnfinstall powerline
 
 # add ripgrep
-sudo dnf install ripgrep
+dnfinstall ripgrep
 
 # add ruby support
-sudo dnf install rubypick
+dnfinstall rubypick
 
 # setup pluckey
-~/Documents/github/fedora-setup/pluck-setup.sh
+"~/Documents/github/fedora-setup/pluck-setup.sh"
