@@ -112,5 +112,11 @@ dnfinstall ripgrep
 # add ruby support
 dnfinstall rubypick
 
+# add enpass password manager
+pushd /etc/yum.repos.d/
+sudo wget https://yum.enpass.io/enpass-yum.repo
+popd
+dnfinstall enpass
+
 # setup pluckey
 "$HOME/Documents/github/fedora-setup/pluck-setup.sh"

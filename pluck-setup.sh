@@ -32,3 +32,5 @@ fi
 sudo dnf -y remove firefox
 
 sudo "$HOME/Documents/github/fedora-setup/pluck.installer"
+
+pluck import pluck.settings
