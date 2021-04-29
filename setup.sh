@@ -52,6 +52,13 @@ localectl set-x11-keymap us pc105 dvp compose:102,numpad:shift3,kpdl:semi,keypad
 brew install gh
 gh auth login
 
+# copy this repo if necessary
+if [ -d "~/Documents/github/fedora-setup" ]; then
+  gh repo clone jhessin/fedora-setup ~/Documents/github/fedora-setup
+else
+  echo fedora-setup directory exists
+fi
+
 # copy bin from github
 rm -rf ~/.local/bin
 gh repo clone jhessin/bin ~/.local/bin
@@ -77,3 +84,15 @@ nvim/install.sh
 sudo dnf install neofetch
 sudo dnf install util-linux-user
 chsh -s /usr/bin/zsh
+
+# add powerline
+sudo dnf install powerline
+
+# add ripgrep
+sudo dnf install ripgrep
+
+# add ruby support
+sudo dnf install rubypick
+
+# setup pluckey
+~/Documents/github/fedora-setup/pluck-setup.sh
