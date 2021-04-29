@@ -92,6 +92,8 @@ popd
 # setup zsh
 dnfinstall zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
 
 # setup neovim
 dnfinstall neovim
@@ -117,6 +119,9 @@ pushd /etc/yum.repos.d/
 sudo wget https://yum.enpass.io/enpass-yum.repo
 popd
 dnfinstall enpass
+
+# add yarn
+dnfinstall yarnpkg
 
 # setup pluckey
 "$HOME/Documents/github/fedora-setup/pluck-setup.sh"

@@ -90,3 +90,7 @@ block port 322
 block port 554
 block protocol wss
 feature system
+# 2021-04-29 16:56:39 + allow githubusercontent.com
+# 2021-04-29 16:57:51 + allow application/octet-stream
+# 2021-04-29 16:58:07 + allow application/x-iso9660-image
+# 2021-04-29 16:58:22 + allow application/x-silverlight
