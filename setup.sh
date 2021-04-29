@@ -73,7 +73,7 @@ sudo dnf install neovim
 pip install pynvim --user
 nvim/install.sh
 
-# add util-linux-user
+# add util-linux-user and configure zsh as default shell
+sudo dnf install neofetch
 sudo dnf install util-linux-user
 chsh -s /usr/bin/zsh
-sudo dnf install neofetch
