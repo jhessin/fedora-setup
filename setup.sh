@@ -10,9 +10,13 @@ dnfinstall fedora-workstation-repositories
 # sudo dnf config-manager --set-enabled # Some repositories to enable?
 
 # setup homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/jhessin/.bash_profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -d "/home/linuxbrew" ]; then
+  echo Linuxbrew installed
+else
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/jhessin/.bash_profile
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 
 # Add gnome-tweaks and set the most important settings
@@ -57,6 +61,11 @@ localectl set-x11-keymap us pc105 dvp compose:102,numpad:shift3,kpdl:semi,keypad
 brew install gh
 gh auth login
 
+# copy dotfiles from github
+pushd ~
+gmerge dotfiles
+popd
+
 # copy this repo if necessary
 if [ -d "~/Documents/github/fedora-setup" ]; then
   gh repo clone jhessin/fedora-setup ~/Documents/github/fedora-setup
@@ -65,22 +74,24 @@ else
 fi
 
 # copy bin from github
-rm -rf ~/.local/bin
+pushd ~/.local/bin
 gh repo clone jhessin/bin ~/.local/bin
 
 # copy config from github
 pushd ~/.config
-gmerge .config
+# gmerge .config
+rm -rf .git
+git init
+git remote add origin git@github.com:$USER/.config
+git fetch
+git reset origin/master
+git reset --hard
+git push -u origin master
 popd
 
 # setup zsh
 dnfinstall zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# copy dotfiles from github
-pushd ~
-gmerge dotfiles
-popd
 
 # setup neovim
 dnfinstall neovim
@@ -102,4 +113,4 @@ dnfinstall ripgrep
 dnfinstall rubypick
 
 # setup pluckey
-"~/Documents/github/fedora-setup/pluck-setup.sh"
+"$HOME/Documents/github/fedora-setup/pluck-setup.sh"
