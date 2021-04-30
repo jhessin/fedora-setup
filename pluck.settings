@@ -53,6 +53,7 @@ allow vidangel.com
 allow w3schools.com
 allow watchgofish.com
 allow zenva.com
+allow remoku.tv
 allow image/svg+xml
 allow otherwise
 allow https://clients2.google.com/service/update2/crx
@@ -73,24 +74,8 @@ allow https://www.gstatic.com/identity
 allow https://www.gstatic.com/images/icons
 allow https://www.gstatic.com/recaptcha
 allow https://www.redditstatic.com/sprite-reddit
-block block.pluckeye.net
-block deny.pluckeye.net
-block application/mp4
-block application/octet-stream
-block application/vnd.rn-realmedia
-block application/vnd.rn-realmedia-vbr
-block application/x-bittorrent
-block application/x-iso9660-image
-block application/x-shockwave-flash
-block application/x-silverlight
-block audio/x-pn-realaudio
-block image/
-block video/
-block port 322
-block port 554
-block protocol wss
 feature system
-# 2021-04-29 16:56:39 + allow githubusercontent.com
-# 2021-04-29 16:57:51 + allow application/octet-stream
-# 2021-04-29 16:58:07 + allow application/x-iso9660-image
-# 2021-04-29 16:58:22 + allow application/x-silverlight
+allow githubusercontent.com
+allow application/octet-stream
+allow application/x-iso9660-image
+allow application/x-silverlight
