@@ -53,6 +53,7 @@ allow vidangel.com
 allow w3schools.com
 allow watchgofish.com
 allow zenva.com
+allow remoku.tv
 allow image/svg+xml
 allow otherwise
 allow https://clients2.google.com/service/update2/crx
