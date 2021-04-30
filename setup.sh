@@ -23,37 +23,6 @@ fi
 dnfinstall gnome-tweaks
 dnfinstall gnome-extensions-app
 
-# focus follows mouse
-gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
-gsettings set org.gnome.mutter center-new-windows true
-
-# right click windowshade
-gsettings set org.gnome.desktop.wm.preferences action-right-click-titlebar 'toggle-shade'
-
-# turn off hot corners
-gsettings set org.gnome.desktop.interface enable-hot-corners false
-
-# show everything on the clock and battery
-gsettings set org.gnome.desktop.interface clock-show-seconds true
-gsettings set org.gnome.desktop.interface clock-show-weekday true
-gsettings set org.gnome.desktop.interface show-battery-percentage true
-
-# ctrl locates the pointer
-gsettings set org.gnome.desktop.interface locate-pointer true
-
-# programmer dvorak tweaks
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape', 'keypad:atm']"
-
-# Dark theme
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-
-# boost speakers
-gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
-
-# default extensions
-gsettings set org.gnome.shell enabled-extensions "['background-logo@fedorahosted.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com']"
-
-
 # remap the keyboard properly
 localectl set-x11-keymap us pc105 dvp compose:102,numpad:shift3,kpdl:semi,keypad:atm,caps:escape
 
@@ -67,11 +36,14 @@ gmerge dotfiles
 popd
 
 # copy this repo if necessary
-if [ -d "~/Documents/github/fedora-setup" ]; then
-  gh repo clone jhessin/fedora-setup ~/Documents/github/fedora-setup
-else
+if [ -d "$HOME/Documents/github/fedora-setup" ]; then
   echo fedora-setup directory exists
+else
+  gh repo clone jhessin/fedora-setup ~/Documents/github/fedora-setup
 fi
+
+# import all dconf settings/gsettings
+dconf load / < "$HOME/Documents/github/fedora-setup/dconf.settings"
 
 # copy bin from github
 pushd ~/.local/bin
