@@ -95,5 +95,8 @@ dnfinstall enpass
 # add yarn
 dnfinstall yarnpkg
 
+# add fzf
+dnfinstall fzf
+
 # setup pluckey
 "$HOME/Documents/github/fedora-setup/pluck-setup.sh"
