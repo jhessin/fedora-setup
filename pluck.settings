@@ -19,10 +19,12 @@ allow digitalocean.com
 allow discover.com
 allow disneyplus.com
 allow enpass.io
+allow facebook.com
 allow fedora.org
 allow flatpak.org
 allow getbootstrap.com
 allow getfedora.org
+allow ggpht.com
 allow github.com
 allow github.io
 allow githubusercontent.com
@@ -61,6 +63,7 @@ allow va.gov
 allow vidangel.com
 allow w3schools.com
 allow watchgofish.com
+allow zendesk.com
 allow zenva.com
 allow 10.0.0.1
 allow 127.0.0.1
