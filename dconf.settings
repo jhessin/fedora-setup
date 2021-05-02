@@ -3,7 +3,7 @@ current=uint32 0
 per-window=false
 show-all-sources=true
 sources=[('xkb', 'us+dvp')]
-xkb-options=['caps:escape', 'keypad:atm']
+xkb-options=['caps:escape', 'keypad:atm', 'compose:102', 'numpad:shift3', 'kpdl:semi']
 
 [org/gnome/desktop/interface]
 clock-show-seconds=true
