@@ -22,5 +22,8 @@ popd
 if [ -d "$HOME/Documents/github/fedora-setup" ]; then
   echo fedora-setup directory exists
 else
-  gh repo clone jhessin/fedora-setup ~/Documents/github/fedora-setup
+  gh repo clone jhessin/fedora-setup $HOME/Documents/github/fedora-setup
 fi
+
+# start main setup
+$HOME/Documents/github/fedora-setup/setup.sh
