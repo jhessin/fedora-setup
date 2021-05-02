@@ -58,5 +58,12 @@ $HOME/config/nvim/install.sh
 # add util-linux-user and configure zsh as default shell
 chsh -s /usr/bin/zsh
 
-# setup pluckey
-$HOME/fedora-setup/pluck-setup.sh
+# setup pluckey (optional)
+echo "
+You can now setup pluckeye by running the following commands.
+cd $HOME/fedora-setup
+pluck.installer
+
+then import the pluck settings:
+  pluck import pluck.settings
+  "

@@ -21,6 +21,7 @@ allow disneyplus.com
 allow enpass.io
 allow facebook.com
 allow fedora.org
+allow fedoraproject.org
 allow flatpak.org
 allow getbootstrap.com
 allow getfedora.org

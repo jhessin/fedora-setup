@@ -1,5 +1,6 @@
 fedora-workstation-repositories
 zsh
+tmux
 gnome-tweaks
 gnome-extensions-app
 neovim
