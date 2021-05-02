@@ -9,38 +9,12 @@ function dnfinstall {
 dnfinstall fedora-workstation-repositories
 # sudo dnf config-manager --set-enabled # Some repositories to enable?
 
-# setup homebrew
-if [ -d "/home/linuxbrew" ]; then
-  echo Linuxbrew installed
-else
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/jhessin/.bash_profile
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-
 # Add gnome-tweaks and set the most important settings
 dnfinstall gnome-tweaks
 dnfinstall gnome-extensions-app
 
 # remap the keyboard properly
 localectl set-x11-keymap us pc105 dvp compose:102,numpad:shift3,kpdl:semi,keypad:atm,caps:escape
-
-# add and configure gh (github cli)
-brew install gh
-gh auth login
-
-# copy dotfiles from github
-pushd ~
-gmerge dotfiles
-popd
-
-# copy this repo if necessary
-if [ -d "$HOME/Documents/github/fedora-setup" ]; then
-  echo fedora-setup directory exists
-else
-  gh repo clone jhessin/fedora-setup ~/Documents/github/fedora-setup
-fi
 
 # import all dconf settings/gsettings
 dconf load / < "$HOME/Documents/github/fedora-setup/dconf.settings"
