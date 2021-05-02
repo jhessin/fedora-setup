@@ -31,7 +31,7 @@ gh repo clone jhessin/bin $HOME/.local/bin
 PATH=$PATH:$HOME/.local/bin
 
 # copy config from github
-pushd $HOME/config
+pushd $HOME/.config
 gmerge .config
 popd
 
