@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-# remove old firefox
+# remove old firefox only works on standard workstation
 sudo dnf -y remove firefox
 
-sudo sh -c $(curl -fsSL https://raw.githubusercontent.com/jhessin/fedora-setup/master/pluck.installer)
+sudo $HOME/fedora-setup/pluck.installer
 
-pluck import $(curl -fsSL https://raw.githubusercontent.com/jhessin/fedora-setup/master/pluck.settings)
+pluck import $HOME/fedora-setup/pluck.settings
