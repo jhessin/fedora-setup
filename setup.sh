@@ -41,6 +41,11 @@ pushd $HOME/.config
 gmerge .config
 popd
 
+# copy dotfiles from github
+pushd $HOME
+gmerge dotfiles
+popd
+
 # setup zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # setup zinit
