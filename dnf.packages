@@ -1,0 +1,15 @@
+fedora-workstation-repositories
+zsh
+gnome-tweaks
+gnome-extensions-app
+neovim
+neofetch
+util-linux-user
+powerline
+ripgrep
+rubypick
+enpass
+yarnpkg
+fzf
+gh
+https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
