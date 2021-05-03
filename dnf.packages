@@ -1,4 +1,7 @@
 fedora-workstation-repositories
+gcc
+glib
+glib-devel
 zsh
 tmux
 gnome-tweaks
