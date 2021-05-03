@@ -16,4 +16,15 @@ else
   echo Downloading repo...
   git clone https://github.com/jhessin/fedora-setup.git $HOME/fedora-setup
 fi
-toolbox run $HOME/fedora-setup/setup.sh
+
+# setup google launcher
+cd ~/fedora-setup
+xdg-icon-resource --size 256 google-chrome.png
+cp google-chrome.desktop ~/.local/share/applications/
+
+echo "
+The rest of the setup needs to be run inside your toolbox:
+toolbox enter
+cd ~/fedora-setup
+./setup.sh
+"
